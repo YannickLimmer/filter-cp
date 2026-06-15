@@ -1,6 +1,6 @@
 # Filter-CP Reproducibility Repository
 
-This repository contains source code to reproduce the numeric outputs used by the paper `filter_cp.pdf`:
+This repository contains source code to reproduce the numeric outputs used by the paper _Filtered Conformal Ellipsoids for Graph-Native Time Series_:
 
 - table metrics (coverage, joint coverage, width, winkler),
 - diagnostic metrics (`rho_*`, `tau_int`, log-volume),
