@@ -1,0 +1,9 @@
+N,cell,logvol_per_coord,method,table
+20,metrla,1.36,ACIPerGroupFactorCGIF,tab:logvol-main
+20,metrla,1.31,AgACIGroupCGIF,tab:logvol-main
+20,metrla,1.18,GNF,tab:logvol-main
+20,metrla,1.45,StaticCGIF,tab:logvol-main
+50,pems_bay,1.06,ACIPerGroupFactorCGIF,tab:logvol-main
+50,pems_bay,1.04,AgACIGroupCGIF,tab:logvol-main
+50,pems_bay,0.81,GNF,tab:logvol-main
+50,pems_bay,1.32,StaticCGIF,tab:logvol-main

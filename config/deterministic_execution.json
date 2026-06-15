@@ -1,0 +1,29 @@
+{
+  "profile_name": "deterministic-default",
+  "description": "Deterministic execution profile for reproducibility runs.",
+  "python_hash_seed": 0,
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "torch_env": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "reproduce_defaults": {
+    "seed_start": 0,
+    "include_vendored_baselines": false,
+    "audit": true,
+    "alpha": 0.1
+  },
+  "tolerance_defaults": {
+    "width_std_multiplier": 2.0,
+    "width_absolute_floor": 0.1,
+    "logvol_absolute": 0.15,
+    "diag_range_slack": 0.01,
+    "rho_ind_absolute": 0.05
+  }
+}

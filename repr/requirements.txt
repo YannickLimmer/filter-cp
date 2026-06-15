@@ -1,0 +1,29 @@
+# Graph-filtered conformal prediction reproducibility dependencies.
+#
+# Install into a clean virtualenv:
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+
+# Core scientific stack.
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+pyarrow>=13.0
+
+# UCI dataset downloads (AQI, ELEC).
+requests>=2.31
+
+# Hugging Face mirrors (METR-LA, PEMS-BAY, ETT, Solar, Jena, Loop-Seattle,
+# LargeST).
+huggingface-hub>=0.19
+
+# LargeST stores raw 5-minute panels in PyTables H5 format.
+h5py>=3.10
+
+# k-NN search inside the vendored MultiDim-SPCI baseline.
+scikit-learn>=1.3
+
+# PyTorch is a HARD requirement.  GNF (graph-conv GRU) and DiagGRU are
+# core methods, not optional baselines; the script aborts at startup
+# if torch is missing.  CopulaCPTS also depends on torch.
+torch>=2.0

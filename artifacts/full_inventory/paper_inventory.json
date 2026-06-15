@@ -1,0 +1,1614 @@
+{
+  "_doc": "Master result inventory for the graph-filtered conformal prediction submission. Each record describes one reported artifact. Status legend: 'exact' = numbers come straight from manifest aggregation with no manual edit; 'approx' = number rounded for typesetting; 'post-processed' = derived (for example, relative-width percentages); 'manually edited' = presentation-only editing on top of generated values.",
+  "alpha": 0.1,
+  "artifacts": [
+    {
+      "aggregation_rule": "n/a",
+      "all_reported_numbers": [],
+      "artifact_id": "Figure 1",
+      "artifact_type": "figure",
+      "caption_or_claim_text": "Filtered conformal prediction. A frozen filter emits a one-step mean and covariance; calibration scores are squared Mahalanobis residuals; the empirical (1-\u03b1)-quantile defines a prediction ellipsoid.",
+      "config_id": "n/a (schematic)",
+      "generation_script_or_notebook": "manual diagram (vector source not in repo); png exported from jpg",
+      "input_datasets": [],
+      "methods_included": [],
+      "paper_location": "sections/01_introduction.tex (\\label{fig:architecture})",
+      "rounding_rule": "n/a",
+      "seeds_used": [],
+      "status": "manually edited",
+      "underlying_data_file": "n/a (schematic without numeric inputs)"
+    },
+    {
+      "aggregation_rule": "10-seed mean (no error bars in the figure)",
+      "all_reported_numbers": "(visual; numerical values are those of Tables 2 and 9)",
+      "artifact_id": "Figure 2 (headline.pdf)",
+      "artifact_type": "figure",
+      "caption_or_claim_text": "Width vs joint coverage on graph-native traffic. First two panels = Table tab:hero (moderate-N, GPVAR backbone); last two panels = full-graph cells under graph-oblivious Transformer backbone (Table tab:multibackbone-full). Plotted points are 10-seed means.",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "scripts/aggregate_matched_coverage_planner_replay.py + repro: rebuild via `python repr/reproduce.py --mode full --cells hero gpvar_scale --check-expected` then plot",
+      "input_datasets": [
+        "metrla",
+        "metrla_full",
+        "pems_bay",
+        "pems_bay_full"
+      ],
+      "methods_included": [
+        "GNF",
+        "GNF+ACI",
+        "ACIPerGroupFactorCGIF",
+        "AgACIGroupCGIF",
+        "StaticCGIF",
+        "CopulaCPTS",
+        "MultiDimSPCI",
+        "KalmanFCP",
+        "DiagGRU"
+      ],
+      "paper_location": "sections/06_experiments.tex (\\label{fig:headline})",
+      "rounding_rule": "plot: matplotlib default; underlying numbers: see Tables 2 and 9",
+      "seeds_used": "10 seeds, indices 0..9",
+      "status": "exact",
+      "underlying_data_file": "artifacts/main_body/figure_headline_points_expected.csv"
+    },
+    {
+      "aggregation_rule": "10-seed mean width and joint coverage",
+      "all_reported_numbers": "see tab:scale for paired (width, joint) values",
+      "artifact_id": "Figure 3 (scale.pdf)",
+      "artifact_type": "figure",
+      "caption_or_claim_text": "Width vs state-space dimension N on METR-LA (20\u2192207) and PEMS-BAY (50\u2192325), log-log axes. Cross marker flags under-coverage (joint < 0.895). KalmanFCP widens ~11x between N=20 and N=325.",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "rebuild via `python repr/reproduce.py --mode full --cells gpvar_scale --check-expected`",
+      "input_datasets": [
+        "metrla",
+        "metrla_full",
+        "pems_bay",
+        "pems_bay_full"
+      ],
+      "methods_included": [
+        "GNF",
+        "GNF+ACI",
+        "ACIPerGroupFactorCGIF",
+        "CopulaCPTS",
+        "MultiDimSPCI",
+        "StaticCGIF",
+        "KalmanFCP"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{fig:scale}, App. B.10)",
+      "rounding_rule": "plot via matplotlib; numbers per tab:scale",
+      "seeds_used": "10 seeds, 0..9",
+      "status": "exact",
+      "underlying_data_file": "artifacts/main_body/figure_scale_points_expected.csv"
+    },
+    {
+      "aggregation_rule": "n/a",
+      "all_reported_numbers": [],
+      "artifact_id": "Table 1 (tab:ledger, Theory ledger)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Assumption summary. Each main result is conditional on listed assumptions; audits estimate operative quantities directly but do not certify population assumptions.",
+      "config_id": "n/a",
+      "generation_script_or_notebook": "manual",
+      "input_datasets": [],
+      "methods_included": [],
+      "paper_location": "sections/05_theory.tex (\\label{tab:ledger})",
+      "rounding_rule": "n/a",
+      "seeds_used": [],
+      "status": "manually edited",
+      "underlying_data_file": "n/a (prose summary table, not generated from data)"
+    },
+    {
+      "aggregation_rule": "per-seed (width, joint) -> 10-seed mean and std (np.std with ddof=0)",
+      "all_reported_numbers": {
+        "delta_pct_vs_StaticCGIF": {
+          "metrla_GNF": -23.6,
+          "metrla_GNF+ACI": -26.1,
+          "pems_bay_GNF": -40.5,
+          "pems_bay_GNF+ACI": -40.2
+        },
+        "metrla_N20": {
+          "BestNonFilter (AgACIGroupCGIF)": [
+            3.33,
+            0.23,
+            0.9
+          ],
+          "CopulaCPTS": [
+            3.7,
+            0.24,
+            0.907
+          ],
+          "DiagGRU": [
+            4.71,
+            1.16,
+            0.932
+          ],
+          "GNF": [
+            3.05,
+            0.13,
+            0.91
+          ],
+          "GNF+ACI": [
+            2.95,
+            0.17,
+            0.904
+          ],
+          "MultiDimSPCI": [
+            4.1,
+            0.17,
+            0.901
+          ],
+          "StaticCGIF": [
+            3.99,
+            0.17,
+            0.902
+          ]
+        },
+        "pems_bay_N50": {
+          "BestNonFilter (ACIPerGroupFactorCGIF)": [
+            2.3,
+            0.09,
+            0.899
+          ],
+          "CopulaCPTS": [
+            5.69,
+            0.74,
+            0.908
+          ],
+          "DiagGRU": [
+            2.88,
+            0.1,
+            0.921
+          ],
+          "GNF": [
+            1.98,
+            0.06,
+            0.904
+          ],
+          "GNF+ACI": [
+            1.99,
+            0.07,
+            0.899
+          ],
+          "MultiDimSPCI": [
+            3.4,
+            0.11,
+            0.908
+          ],
+          "StaticCGIF": [
+            3.33,
+            0.11,
+            0.907
+          ]
+        }
+      },
+      "artifact_id": "Table 2 (tab:hero, Moderate-N graph-native)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Width (mean\u00b1std, 10 seeds) and joint coverage at \u03b1=0.1; relative width vs StaticCGIF. Filter rows use native one-step mean; non-filter rows use shared GPVAR mean.",
+      "config_id": "see \u00a7F.1 (CellConfig defaults at --mode full)",
+      "generation_script_or_notebook": "repr/reproduce.py (METHOD_ORDER constant + run_one_seed + aggregate_seeds)",
+      "input_datasets": [
+        "metrla (busiest-20)",
+        "pems_bay (busiest-50)"
+      ],
+      "methods_included": [
+        "GNF",
+        "GNF+ACI",
+        "AgACIGroupCGIF (best non-filter on metrla)",
+        "ACIPerGroupFactorCGIF (best non-filter on pems_bay)",
+        "StaticCGIF",
+        "DiagGRU",
+        "CopulaCPTS",
+        "MultiDimSPCI"
+      ],
+      "paper_location": "sections/06_experiments.tex (\\label{tab:hero})",
+      "rounding_rule": "width: 2 decimals (e.g. 3.05); std: 2 decimals; joint: 3 decimals; %-delta: 1 decimal",
+      "seeds_used": "10 seeds, indices 0..9",
+      "status": "exact",
+      "underlying_data_file": [
+        "repr/expected.json (key: table_hero)",
+        "runs/metrla_full/20260426-113839/manifest.json",
+        "runs/pems_bay_full/20260426-083742/manifest.json",
+        "(canonical regen: `python repr/reproduce.py --mode full --cells hero --check-expected`)"
+      ]
+    },
+    {
+      "aggregation_rule": "per-seed Vhat_m = (1/N) * sum(log(diag(Sigma_t) + ridge_floor)) at q=hat q_{1-\u03b1}; report 10-seed mean",
+      "all_reported_numbers": {
+        "metrla_N20": {
+          "ACIPerGroupFactorCGIF": 1.36,
+          "AgACIGroupCGIF": 1.31,
+          "GNF": 1.18,
+          "StaticCGIF": 1.45
+        },
+        "pems_bay_N50": {
+          "ACIPerGroupFactorCGIF": 1.06,
+          "AgACIGroupCGIF": 1.04,
+          "GNF": 0.81,
+          "StaticCGIF": 1.32
+        }
+      },
+      "artifact_id": "Table 3 (tab:logvol-main, Headline log-volume)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Normalised log-volume on the headline cells (nats per coordinate; lower is sharper). 10-seed mean.",
+      "config_id": "default-full + --audit",
+      "generation_script_or_notebook": "repr/_lib/audit.py:log_volume_per_coord  (called per-seed via reproduce.py --audit)",
+      "input_datasets": [
+        "metrla (busiest-20)",
+        "pems_bay (busiest-50)"
+      ],
+      "methods_included": [
+        "GNF",
+        "AgACIGroupCGIF",
+        "ACIPerGroupFactorCGIF",
+        "StaticCGIF"
+      ],
+      "paper_location": "sections/06_experiments.tex (\\label{tab:logvol-main})",
+      "rounding_rule": "2 decimals nats/coord",
+      "seeds_used": "10 seeds, 0..9",
+      "status": "exact",
+      "underlying_data_file": [
+        "repr/expected.json (key: table_logvol_main)",
+        "runs/metrla_full/20260426-113839/manifest.json",
+        "runs/pems_bay_full/20260426-083742/manifest.json"
+      ]
+    },
+    {
+      "aggregation_rule": "OLS slope of log10(W1) vs t in t\u2208[20,100] for rho_score; closed-form sigma_1 for linear sanity; max-cell, min-cell -> reported range",
+      "all_reported_numbers": {
+        "rho_DL": [
+          0.48,
+          0.5
+        ],
+        "rho_dG": [
+          0.45,
+          0.46
+        ],
+        "rho_ind": 0.85,
+        "rho_score": [
+          0.14,
+          0.153
+        ],
+        "tau_int": [
+          10,
+          13
+        ]
+      },
+      "artifact_id": "Table 4 (tab:diag-main, Diagnostic summary)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Compact main-text diagnostic summary: empirical fitted rates across audited real-data cells. Per-cell values in tab:rho-full.",
+      "config_id": "default-full + --audit",
+      "generation_script_or_notebook": "repr/_lib/audit.py:rho_diagnostics (called from reproduce.py --audit)",
+      "input_datasets": [
+        "all 10 audited cells in tab:rho-full"
+      ],
+      "methods_included": [
+        "GraphLGSSM (linear sanity)",
+        "GraphNeuralSSM (deployed)"
+      ],
+      "paper_location": "sections/06_experiments.tex (\\label{tab:diag-main})",
+      "rounding_rule": "rho_*: 2 decimals (3 for rho_score), tau_int: integer",
+      "seeds_used": "5 perturbation realisations per seed \u00d7 10 training seeds",
+      "status": "exact",
+      "underlying_data_file": [
+        "repr/expected.json (key: table_diag_main)",
+        "Per-cell numbers: tab:rho-full at sections/09_appendix.tex line 2138",
+        "Run: reproduce.py --mode full --cells primary --audit"
+      ]
+    },
+    {
+      "aggregation_rule": "per-seed (width, joint) -> 10-seed mean and ddof=0 std",
+      "all_reported_numbers": {
+        "metrla_N20": {
+          "ACIPerGroupFactorCGIF": [
+            3.6,
+            0.28,
+            0.902
+          ],
+          "CopulaCPTS": [
+            3.7,
+            0.24,
+            0.907
+          ],
+          "GNF": [
+            3.05,
+            0.13,
+            0.91
+          ],
+          "GNF+ACI": [
+            2.95,
+            0.17,
+            0.904
+          ],
+          "KalmanFCP": [
+            4.69,
+            0.28,
+            0.906
+          ],
+          "MultiDimSPCI": [
+            4.1,
+            0.17,
+            0.901
+          ],
+          "StaticCGIF": [
+            3.99,
+            0.17,
+            0.902
+          ]
+        },
+        "metrla_N207": {
+          "ACIPerGroupFactorCGIF": [
+            7.21,
+            0.0,
+            0.902
+          ],
+          "CopulaCPTS": [
+            6.73,
+            0.04,
+            0.914
+          ],
+          "GNF": [
+            9.14,
+            0.24,
+            0.902
+          ],
+          "GNF+ACI": [
+            9.0,
+            0.6,
+            0.902
+          ],
+          "KalmanFCP": [
+            21.2,
+            0.0,
+            0.9
+          ],
+          "MultiDimSPCI": [
+            12.6,
+            0.0,
+            0.877
+          ],
+          "StaticCGIF": [
+            11.8,
+            0.0,
+            0.88
+          ]
+        },
+        "pems_bay_N325": {
+          "ACIPerGroupFactorCGIF": [
+            5.64,
+            0.0,
+            0.901
+          ],
+          "CopulaCPTS": [
+            14.4,
+            1.41,
+            0.894
+          ],
+          "GNF": [
+            8.58,
+            0.28,
+            0.878
+          ],
+          "GNF+ACI": [
+            9.01,
+            0.38,
+            0.899
+          ],
+          "KalmanFCP": [
+            51.4,
+            0.0,
+            0.852
+          ],
+          "MultiDimSPCI": [
+            12.7,
+            0.0,
+            0.886
+          ],
+          "StaticCGIF": [
+            12.0,
+            0.0,
+            0.887
+          ]
+        },
+        "pems_bay_N50": {
+          "ACIPerGroupFactorCGIF": [
+            2.3,
+            0.09,
+            0.899
+          ],
+          "CopulaCPTS": [
+            5.69,
+            0.74,
+            0.908
+          ],
+          "GNF": [
+            1.98,
+            0.06,
+            0.904
+          ],
+          "GNF+ACI": [
+            1.99,
+            0.07,
+            0.899
+          ],
+          "KalmanFCP": [
+            11.2,
+            1.03,
+            0.897
+          ],
+          "MultiDimSPCI": [
+            3.4,
+            0.11,
+            0.908
+          ],
+          "StaticCGIF": [
+            3.33,
+            0.11,
+            0.907
+          ]
+        }
+      },
+      "artifact_id": "Table 5 (tab:scale, GPVAR scale sweep)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "GPVAR scale sweep \u2014 moderate-N win, full-graph crossover. Width (mean\u00b1std, 10 seeds) at \u03b1=0.1.",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "repr/reproduce.py --mode full --cells gpvar_scale --check-expected",
+      "input_datasets": [
+        "metrla (N=20)",
+        "metrla_full (N=207)",
+        "pems_bay (N=50)",
+        "pems_bay_full (N=325)"
+      ],
+      "methods_included": [
+        "GNF",
+        "GNF+ACI",
+        "ACIPerGroupFactorCGIF",
+        "CopulaCPTS",
+        "MultiDimSPCI",
+        "StaticCGIF",
+        "KalmanFCP"
+      ],
+      "paper_location": "sections/06_experiments.tex (\\label{tab:scale})",
+      "rounding_rule": "width: 2 decimals; std: 2 decimals; joint: 3 decimals",
+      "seeds_used": "10 seeds, 0..9 (full-graph cells: deterministic sub-graph at seed 0; later seeds vary the random subgraph rotation -> some methods land on identical numbers, hence std=0.00)",
+      "status": "exact",
+      "underlying_data_file": [
+        "repr/expected.json (key: table_scale_gpvar)",
+        "runs/metrla_full/20260426-113839/manifest.json (METR-LA full)",
+        "runs/pems_bay_full/20260426-083742/manifest.json (PEMS-BAY full)"
+      ]
+    },
+    {
+      "aggregation_rule": "10-seed mean width / joint",
+      "all_reported_numbers": {
+        "ACIPerGroupFactorCGIF": {
+          "gpvar": [
+            5.64,
+            0.901
+          ],
+          "gru": [
+            14.1,
+            0.902
+          ],
+          "stgnn": [
+            5.96,
+            0.9
+          ],
+          "transformer": [
+            11.4,
+            0.9
+          ]
+        },
+        "GNF+ACI": {
+          "gpvar": [
+            9.01,
+            0.899
+          ],
+          "gru": [
+            8.7,
+            0.898
+          ],
+          "stgnn": [
+            9.04,
+            0.899
+          ],
+          "transformer": [
+            8.61,
+            0.899
+          ]
+        }
+      },
+      "artifact_id": "Table 6 (tab:backbone-crossover, Full-graph backbone crossover)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Full-graph backbone crossover on PEMS-BAY-325. Width / joint coverage at \u03b1=0.1. Compact panel of tab:multibackbone-full.",
+      "config_id": "default-full \u00d7 backbone \u2208 {gpvar, gru, transformer, stgnn}",
+      "generation_script_or_notebook": "scripts/aggregate_matched_coverage_planner_replay.py (multi-backbone driver) + repr/reproduce.py for the GPVAR column",
+      "input_datasets": [
+        "pems_bay_full"
+      ],
+      "methods_included": [
+        "GNF+ACI",
+        "ACIPerGroupFactorCGIF"
+      ],
+      "paper_location": "sections/06_experiments.tex (\\label{tab:backbone-crossover})",
+      "rounding_rule": "width: 2 decimals; joint: 3 decimals",
+      "seeds_used": "10 seeds, 0..9",
+      "status": "exact",
+      "underlying_data_file": "reported replication run; see tab:multibackbone-full for the full panel"
+    },
+    {
+      "aggregation_rule": "n/a",
+      "all_reported_numbers": {
+        "see deliverable F": "complete table"
+      },
+      "artifact_id": "Table 7 (tab:hyperparams, GraphNeuralSSM hyperparameters)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "GraphNeuralSSM hyperparameters. Fixed across all datasets and seeds; no validation-set sweep was run.",
+      "config_id": "n/a (config artifact)",
+      "generation_script_or_notebook": "manual",
+      "input_datasets": [],
+      "methods_included": [
+        "GNF"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:hyperparams})",
+      "rounding_rule": "exact values",
+      "seeds_used": [],
+      "status": "exact",
+      "underlying_data_file": "manuscript appendix (tab:hyperparams)"
+    },
+    {
+      "aggregation_rule": "n/a",
+      "all_reported_numbers": "n/a (registry table)",
+      "artifact_id": "Table 8 (tab:method-map, Method\u2192mean\u2192covariance map)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Method \u2192 mean predictor \u2192 covariance mechanism, with tuned/ACI flags.",
+      "config_id": "n/a",
+      "generation_script_or_notebook": "manual; cross-checked against repr/_lib/methods.py",
+      "input_datasets": [],
+      "methods_included": "all 16 main-table baselines",
+      "paper_location": "sections/09_appendix.tex (\\label{tab:method-map})",
+      "rounding_rule": "n/a",
+      "seeds_used": [],
+      "status": "exact",
+      "underlying_data_file": "manuscript appendix (tab:method-map)"
+    },
+    {
+      "aggregation_rule": "n/a",
+      "all_reported_numbers": "see deliverable D",
+      "artifact_id": "Table 9 (tab:datasets, Dataset inventory)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Dataset inventory: N_total, T, cadence, window, source, evaluation N.",
+      "config_id": "n/a",
+      "generation_script_or_notebook": "manual; sourced from repr/_lib/data/{metrla,pems_bay,aqi,elec,ett,solar,jena,loop_seattle,largest,synthetic}.py loader headers",
+      "input_datasets": [
+        "all 8 real + GRSSF synthetic"
+      ],
+      "methods_included": [],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:datasets})",
+      "rounding_rule": "T reported as integer count",
+      "seeds_used": [],
+      "status": "exact",
+      "underlying_data_file": "manuscript appendix (tab:datasets)"
+    },
+    {
+      "aggregation_rule": "n/a",
+      "all_reported_numbers": "n/a (registry table)",
+      "artifact_id": "Table 10 (tab:taxonomy, Dataset taxonomy)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Dataset taxonomy: graph-native vs non-graph-native; adjacency source; evaluation N; appearances.",
+      "config_id": "n/a",
+      "generation_script_or_notebook": "manual",
+      "input_datasets": [],
+      "methods_included": [],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:taxonomy})",
+      "rounding_rule": "n/a",
+      "seeds_used": [],
+      "status": "exact",
+      "underlying_data_file": "manuscript appendix (tab:taxonomy)"
+    },
+    {
+      "aggregation_rule": "tau_int = 1 + 2 * sum_{k=1..30} corr(X_j, X_{j+k}); m=3500 (post-warmup calibration size)",
+      "all_reported_numbers": {
+        "SYN_GraphLGSSM": {
+          "analytic": 12.3,
+          "analytic_meff": 285,
+          "m_over_tau": 304,
+          "tau_int": 11.5
+        },
+        "SYN_GraphNeuralSSM": {
+          "analytic": 11.5,
+          "analytic_meff": 304,
+          "m_over_tau": 361,
+          "tau_int": 9.7
+        },
+        "metrla20_GraphLGSSM": {
+          "analytic": 13.0,
+          "analytic_meff": 269,
+          "m_over_tau": 265,
+          "tau_int": 13.2
+        },
+        "metrla20_GraphNeuralSSM": {
+          "analytic": 11.5,
+          "analytic_meff": 304,
+          "m_over_tau": 318,
+          "tau_int": 11.0
+        }
+      },
+      "artifact_id": "Table 11 (tab:tau-int, Integrated autocorrelation time)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Integrated autocorrelation time at the conformal threshold. tau_int(s*) and Bernstein-form m_eff.",
+      "config_id": "audit-only h=16, r=4, single seed",
+      "generation_script_or_notebook": "repr/_lib/audit.py:rho_diagnostics (tau_int output)",
+      "input_datasets": [
+        "synthetic",
+        "metrla (busiest-20)"
+      ],
+      "methods_included": [
+        "GraphLGSSM",
+        "GraphNeuralSSM"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:tau-int})",
+      "rounding_rule": "tau_int: 1 decimal; analytic: 1 decimal; m/tau: integer",
+      "seeds_used": "single audit seed",
+      "status": "exact",
+      "underlying_data_file": "(audit-only run on synthetic GPVAR + metrla-20 single seed; numbers from sections/09_appendix.tex lines 2094-2118)"
+    },
+    {
+      "aggregation_rule": "linear sanity columns: closed form on Acl=F(I-KC); empirical columns: see G.6/H/I",
+      "all_reported_numbers": {
+        "aqi": {
+          "N": 12,
+          "rho_DL": 0.48,
+          "rho_M0": 0.435,
+          "rho_dG": 0.45,
+          "rho_ind": 0.85,
+          "rho_score": 0.149,
+          "rho_snr": 0.44,
+          "rho_tr": 0.438,
+          "sigma1": 0.438
+        },
+        "elec": {
+          "N": 20,
+          "rho_DL": 0.48,
+          "rho_M0": 0.43,
+          "rho_dG": 0.45,
+          "rho_ind": 0.86,
+          "rho_score": 0.14,
+          "rho_snr": 0.436,
+          "rho_tr": 0.433,
+          "sigma1": 0.433
+        },
+        "ett": {
+          "N": 7,
+          "rho_DL": 0.48,
+          "rho_M0": 0.434,
+          "rho_dG": 0.45,
+          "rho_ind": 0.86,
+          "rho_score": 0.147,
+          "rho_snr": 0.438,
+          "rho_tr": 0.437,
+          "sigma1": 0.437
+        },
+        "jena": {
+          "N": 20,
+          "rho_DL": 0.49,
+          "rho_M0": 0.438,
+          "rho_dG": 0.46,
+          "rho_ind": 0.85,
+          "rho_score": 0.153,
+          "rho_snr": 0.443,
+          "rho_tr": 0.441,
+          "sigma1": 0.441
+        },
+        "loop_seattle": {
+          "N": 20,
+          "rho_DL": 0.49,
+          "rho_M0": 0.438,
+          "rho_dG": 0.46,
+          "rho_ind": 0.85,
+          "rho_score": 0.152,
+          "rho_snr": 0.443,
+          "rho_tr": 0.441,
+          "sigma1": 0.441
+        },
+        "metrla": {
+          "N": 20,
+          "rho_DL": 0.49,
+          "rho_M0": 0.44,
+          "rho_dG": 0.46,
+          "rho_ind": 0.85,
+          "rho_score": 0.153,
+          "rho_snr": 0.443,
+          "rho_tr": 0.443,
+          "sigma1": 0.443
+        },
+        "metrla_full": {
+          "N": 207,
+          "rho_DL": 0.5,
+          "rho_M0": 0.415,
+          "rho_dG": 0.46,
+          "rho_ind": 0.85,
+          "rho_score": 0.143,
+          "rho_snr": 0.441,
+          "rho_tr": 0.418,
+          "sigma1": 0.439
+        },
+        "pems_bay": {
+          "N": 50,
+          "rho_DL": 0.49,
+          "rho_M0": 0.438,
+          "rho_dG": 0.46,
+          "rho_ind": 0.85,
+          "rho_score": 0.153,
+          "rho_snr": 0.443,
+          "rho_tr": 0.441,
+          "sigma1": 0.441
+        },
+        "pems_bay_full": {
+          "N": 325,
+          "rho_DL": 0.5,
+          "rho_M0": 0.412,
+          "rho_dG": 0.46,
+          "rho_ind": 0.85,
+          "rho_score": 0.149,
+          "rho_snr": 0.442,
+          "rho_tr": 0.415,
+          "sigma1": 0.44
+        },
+        "solar": {
+          "N": 20,
+          "rho_DL": 0.49,
+          "rho_M0": 0.438,
+          "rho_dG": 0.46,
+          "rho_ind": 0.85,
+          "rho_score": 0.153,
+          "rho_snr": 0.443,
+          "rho_tr": 0.441,
+          "sigma1": 0.441
+        }
+      },
+      "artifact_id": "Table 12 (tab:rho-full, Per-dataset contraction rates)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Four distinct per-cell contraction diagnostics: sigma_1(Acl), rho_tr, rho_M0, rho_snr (linear sanity); and rho_dG, rho_DL, rho_score, rho_ind (empirical).",
+      "config_id": "GraphLGSSM (rho_scale=0.8, sigma_Q=sigma_R=1) + GraphNeuralSSM deployed",
+      "generation_script_or_notebook": "repr/_lib/audit.py:rho_diagnostics + closed-form sigma_1 / rho_tr / rho_M0 / rho_snr from app:proofs-snr",
+      "input_datasets": "10 cells (8 real datasets at evaluation N; metrla and pems_bay at both subgraph and full-graph)",
+      "methods_included": [
+        "GraphLGSSM",
+        "GraphNeuralSSM"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:rho-full})",
+      "rounding_rule": "sigma_1, rho_*: 3 decimals; rho_dG/rho_DL: 2 decimals; rho_score: 3 decimals; rho_ind: 2 decimals",
+      "seeds_used": "5 perturbation realisations per cell",
+      "status": "exact",
+      "underlying_data_file": "(audit run; numbers from sections/09_appendix.tex lines 2138-2177)"
+    },
+    {
+      "aggregation_rule": "10-seed mean width / joint",
+      "all_reported_numbers": {
+        "ACIPerGroupFactorCGIF": {
+          "gpvar": [
+            2.3,
+            0.899
+          ],
+          "gru": [
+            2.69,
+            0.9
+          ],
+          "stgnn": [
+            2.35,
+            0.899
+          ],
+          "transformer": [
+            2.27,
+            0.899
+          ]
+        },
+        "GNF+ACI": {
+          "gpvar": [
+            1.94,
+            0.899
+          ],
+          "gru": [
+            2.02,
+            0.899
+          ],
+          "stgnn": [
+            2.07,
+            0.899
+          ],
+          "transformer": [
+            2.1,
+            0.899
+          ]
+        }
+      },
+      "artifact_id": "Table 13 (tab:multibackbone-mod, Moderate-N multi-backbone replication)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Multi-backbone replication on PEMS-BAY-50 (moderate N).",
+      "config_id": "default-full \u00d7 backbone",
+      "generation_script_or_notebook": "scripts/aggregate_matched_coverage_planner_replay.py + experiments/pems_bay_full.py with backbone flag",
+      "input_datasets": [
+        "pems_bay (busiest-50)"
+      ],
+      "methods_included": [
+        "GNF+ACI",
+        "ACIPerGroupFactorCGIF"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:multibackbone-mod})",
+      "rounding_rule": "width: 2 decimals; joint: 3 decimals",
+      "seeds_used": "10 seeds per backbone",
+      "status": "exact",
+      "underlying_data_file": "reported replication run"
+    },
+    {
+      "aggregation_rule": "10-seed mean width / joint",
+      "all_reported_numbers": {
+        "metrla_full": {
+          "ACIPerGroupFactorCGIF": {
+            "gpvar": [
+              7.21,
+              0.901
+            ],
+            "gru": [
+              7.81,
+              0.899
+            ],
+            "stgnn": [
+              7.21,
+              0.902
+            ],
+            "transformer": [
+              7.12,
+              0.9
+            ]
+          },
+          "GNF+ACI": {
+            "gpvar": [
+              8.87,
+              0.902
+            ],
+            "gru": [
+              8.94,
+              0.902
+            ],
+            "stgnn": [
+              8.91,
+              0.903
+            ],
+            "transformer": [
+              8.72,
+              0.902
+            ]
+          }
+        },
+        "pems_bay_full": {
+          "ACIPerGroupFactorCGIF": {
+            "gpvar": [
+              5.64,
+              0.9
+            ],
+            "gru": [
+              14.1,
+              0.902
+            ],
+            "stgnn": [
+              5.96,
+              0.9
+            ],
+            "transformer": [
+              11.4,
+              0.9
+            ]
+          },
+          "GNF+ACI": {
+            "gpvar": [
+              9.01,
+              0.899
+            ],
+            "gru": [
+              8.7,
+              0.898
+            ],
+            "stgnn": [
+              9.04,
+              0.899
+            ],
+            "transformer": [
+              8.61,
+              0.899
+            ]
+          }
+        }
+      },
+      "artifact_id": "Table 14 (tab:multibackbone-full, Full-graph multi-backbone)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Multi-backbone full-graph results on METR-LA-207 and PEMS-BAY-325.",
+      "config_id": "default-full \u00d7 4 backbones \u00d7 2 cells",
+      "generation_script_or_notebook": "scripts/aggregate_matched_coverage_planner_replay.py with --backbone {gpvar,gru,transformer,stgnn}",
+      "input_datasets": [
+        "metrla_full",
+        "pems_bay_full"
+      ],
+      "methods_included": [
+        "GNF+ACI",
+        "ACIPerGroupFactorCGIF"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:multibackbone-full})",
+      "rounding_rule": "width: 2 decimals; joint: 3 decimals",
+      "seeds_used": "10 seeds per cell \u00d7 backbone",
+      "status": "exact",
+      "underlying_data_file": "reported multi-backbone replication; GPVAR values are represented in repr/expected.json"
+    },
+    {
+      "aggregation_rule": "10-seed mean width / joint",
+      "all_reported_numbers": {
+        "ett_N7": {
+          "Copula_best": [
+            2.33,
+            0.895,
+            "GRU"
+          ],
+          "GNF_GRU": [
+            3.62,
+            0.898
+          ],
+          "GNF_STGNN": [
+            3.7,
+            0.897
+          ],
+          "GNF_TF": [
+            3.36,
+            0.897
+          ]
+        },
+        "jena_N20": {
+          "Copula_best": [
+            3.08,
+            0.969,
+            "stgnn"
+          ],
+          "GNF_GRU": [
+            2.85,
+            0.899
+          ],
+          "GNF_STGNN": [
+            2.64,
+            0.895
+          ],
+          "GNF_TF": [
+            2.81,
+            0.894
+          ]
+        },
+        "loop_seattle_N20": {
+          "Copula_best": [
+            2.91,
+            0.897,
+            "T"
+          ],
+          "GNF_GRU": [
+            6.7,
+            0.902
+          ],
+          "GNF_STGNN": [
+            6.6,
+            0.903
+          ],
+          "GNF_TF": [
+            6.56,
+            0.9
+          ]
+        },
+        "solar_N20": {
+          "Copula_best": [
+            1.79,
+            0.918,
+            "T"
+          ],
+          "GNF_GRU": [
+            2.56,
+            0.917
+          ],
+          "GNF_STGNN": [
+            3.09,
+            0.914
+          ],
+          "GNF_TF": [
+            2.92,
+            0.919
+          ]
+        }
+      },
+      "artifact_id": "Table 15 (tab:multibackbone-nontraffic, Non-graph-native panel)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Multi-backbone non-graph-native panel (GNF+ACI). On Solar/LoopSeattle/ETT, CopulaCPTS is sharpest at-target across backbones.",
+      "config_id": "default-full \u00d7 backbone \u00d7 non-graph-native cells",
+      "generation_script_or_notebook": "scripts/aggregate_matched_coverage_planner_replay.py + repr/reproduce.py",
+      "input_datasets": [
+        "solar (busiest-20)",
+        "jena (busiest-20)",
+        "loop_seattle (busiest-20)",
+        "ett (full N=7)"
+      ],
+      "methods_included": [
+        "GNF+ACI (under GRU/Transformer/STGNN)",
+        "CopulaCPTS"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:multibackbone-nontraffic})",
+      "rounding_rule": "width: 2 decimals; joint: 3 decimals",
+      "seeds_used": "10 seeds per cell \u00d7 backbone",
+      "status": "exact",
+      "underlying_data_file": "reported replication values from the manuscript appendix"
+    },
+    {
+      "aggregation_rule": "10-seed mean \u00b1 std",
+      "all_reported_numbers": "see B.16; full table at sections/09_appendix.tex lines 2399-2430",
+      "artifact_id": "Table 16 (tab:hero-full, Extended baseline comparison)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Extended baseline comparison. Width mean\u00b1std over 10 seeds at \u03b1=0.1 with 18 baselines.",
+      "config_id": "default-full + extended baseline grid",
+      "generation_script_or_notebook": "repr/reproduce.py --mode full --cells hero (then add EWMA/Rolling/Time-of-day/Local-ellipsoid/SpectralCGIF/GroupCGIF/spci/HopCPT cells via experiments/{metrla,pems_bay}_full.py)",
+      "input_datasets": [
+        "metrla (busiest-20)",
+        "pems_bay (busiest-50)"
+      ],
+      "methods_included": [
+        "18 baselines: GNF, GNF+ACI, ACIPerGroupFactorCGIF, AgACIGroupCGIF, ACIFactorCGIF, FactorCGIF, GroupCGIF, CGIF-joint, SpectralCGIF, NeuralSSM, NeuralSSM+ACI, CGIFFiltered, CopulaCPTS, MultiDimSPCI, EWMA, Rolling, Time-of-day, Local ellipsoid, spci (marg), HopCPT (marg)"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:hero-full})",
+      "rounding_rule": "width: 2 decimals; joint: 3 decimals; %-delta: 1 decimal",
+      "seeds_used": "10 seeds, 0..9",
+      "status": "exact",
+      "underlying_data_file": [
+        "repr/expected.json (table_hero matches first block)",
+        "runs/metrla_full/20260426-113839/manifest.json",
+        "runs/pems_bay_full/20260426-083742/manifest.json"
+      ]
+    },
+    {
+      "aggregation_rule": "no aggregation (per-seed values)",
+      "all_reported_numbers": {
+        "metrla_N20": {
+          "ACIPerGroupFactorCGIF": {
+            "seed1": [
+              3.642,
+              0.903
+            ],
+            "seed2": [
+              4.061,
+              0.902
+            ],
+            "seed3": [
+              3.659,
+              0.902
+            ]
+          },
+          "CGIF-joint": {
+            "seed1": [
+              3.764,
+              0.897
+            ],
+            "seed2": [
+              4.288,
+              0.898
+            ],
+            "seed3": [
+              4.169,
+              0.899
+            ]
+          },
+          "CopulaCPTS": {
+            "seed1": [
+              3.475,
+              0.903
+            ],
+            "seed2": [
+              4.259,
+              0.905
+            ],
+            "seed3": [
+              3.624,
+              0.907
+            ]
+          },
+          "GNF": {
+            "seed1": [
+              2.894,
+              0.911
+            ],
+            "seed2": [
+              3.058,
+              0.907
+            ],
+            "seed3": [
+              3.177,
+              0.904
+            ]
+          }
+        },
+        "pems_bay_N50": {
+          "ACIPerGroupFactorCGIF": {
+            "seed1": [
+              2.27,
+              0.899
+            ],
+            "seed2": [
+              2.421,
+              0.899
+            ],
+            "seed3": [
+              2.455,
+              0.899
+            ]
+          },
+          "CGIF-joint": {
+            "seed1": [
+              3.096,
+              0.902
+            ],
+            "seed2": [
+              3.376,
+              0.899
+            ],
+            "seed3": [
+              3.391,
+              0.902
+            ]
+          },
+          "CopulaCPTS": {
+            "seed1": [
+              4.51,
+              0.906
+            ],
+            "seed2": [
+              7.019,
+              0.904
+            ],
+            "seed3": [
+              6.015,
+              0.889
+            ]
+          },
+          "GNF": {
+            "seed1": [
+              1.994,
+              0.899
+            ],
+            "seed2": [
+              1.984,
+              0.896
+            ],
+            "seed3": [
+              2.098,
+              0.898
+            ]
+          }
+        }
+      },
+      "artifact_id": "Table 17 (tab:seeds, Per-seed width and coverage)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Per-seed width / joint coverage, 3 fixed seeds (sub-sample of 10-seed aggregate).",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "repr/reproduce.py --mode full --cells hero (per-seed values are the 'per_seed' field of results_<cells>.json)",
+      "input_datasets": [
+        "metrla",
+        "pems_bay"
+      ],
+      "methods_included": [
+        "GNF",
+        "CGIF-joint",
+        "CopulaCPTS",
+        "ACIPerGroupFactorCGIF"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:seeds})",
+      "rounding_rule": "width: 3 decimals; joint: 3 decimals",
+      "seeds_used": "3 fixed seeds drawn from the 10-seed aggregate (seeds 0,1,2 by convention)",
+      "status": "exact",
+      "underlying_data_file": "(per-seed entries inside 10-seed run manifests at runs/metrla_full/20260426-*/ and runs/pems_bay_full/20260426-*/)"
+    },
+    {
+      "aggregation_rule": "p5/p10/p50/p90 percentile of r_hat_Lo / ||\u03b4h|| over perturbation pairs",
+      "all_reported_numbers": {
+        "SYN_GraphLGSSM": {
+          "p10": 0.27,
+          "p5": 0.21,
+          "p50": 0.61,
+          "p90": 0.94,
+          "verdict": "O3"
+        },
+        "SYN_GraphNeuralSSM": {
+          "p10": 0.18,
+          "p5": 0.13,
+          "p50": 0.49,
+          "p90": 0.83,
+          "verdict": "O3"
+        },
+        "metrla20_GraphLGSSM": {
+          "p10": 0.24,
+          "p5": 0.18,
+          "p50": 0.58,
+          "p90": 0.97,
+          "verdict": "O3"
+        },
+        "metrla20_GraphNeuralSSM": {
+          "p10": 0.09,
+          "p5": 0.06,
+          "p50": 0.41,
+          "p90": 1.05,
+          "verdict": "weak-quotient"
+        }
+      },
+      "artifact_id": "Table 18 (tab:obs-audit, Finite-horizon observability)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Finite-horizon observability (Lo=10) lower percentiles of r_hat / ||\u03b4h|| on audited cells.",
+      "config_id": "audit-only",
+      "generation_script_or_notebook": "(observability audit; conceptually inside repr/_lib/audit.py extension; dedicated script not in repr/. Source: theory_alignment.md and audit code under src/filcorel/metrics/diagnostics.py:rho_diagnostics_extra)",
+      "input_datasets": [
+        "synthetic",
+        "metrla (busiest-20)"
+      ],
+      "methods_included": [
+        "GraphLGSSM",
+        "GraphNeuralSSM"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:obs-audit})",
+      "rounding_rule": "2 decimals",
+      "seeds_used": "single audit seed; epsilon \u2208 {1e-3, 1e-2, 1e-1}",
+      "status": "exact",
+      "underlying_data_file": "(audit-only run on synthetic + metrla-20; numbers from sections/09_appendix.tex lines 2642-2660)"
+    },
+    {
+      "aggregation_rule": "per-seed Vhat_m -> 10-seed mean",
+      "all_reported_numbers": {
+        "metrla_N20": {
+          "ACIPerGroupFactorCGIF": 1.36,
+          "AgACIGroupCGIF": 1.31,
+          "CGIF-joint": 1.45,
+          "GNF": 1.18,
+          "delta_AgACI": -0.14,
+          "delta_GNF": -0.27,
+          "delta_PerGroup": -0.09
+        },
+        "pems_bay_N50": {
+          "ACIPerGroupFactorCGIF": 1.06,
+          "AgACIGroupCGIF": 1.04,
+          "CGIF-joint": 1.32,
+          "GNF": 0.81,
+          "delta_AgACI": -0.28,
+          "delta_GNF": -0.51,
+          "delta_PerGroup": -0.26
+        }
+      },
+      "artifact_id": "Table 19 (tab:logvol, Per-cell log-volume)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Normalised expected log-volume on the headline cells. Vhat_m in nats/coordinate.",
+      "config_id": "default-full + --audit; ridge floor lambda_min^log = 1e-4",
+      "generation_script_or_notebook": "repr/_lib/audit.py:log_volume_per_coord (called via reproduce.py --audit)",
+      "input_datasets": [
+        "metrla",
+        "pems_bay"
+      ],
+      "methods_included": [
+        "GNF",
+        "AgACIGroupCGIF",
+        "ACIPerGroupFactorCGIF",
+        "CGIF-joint"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:logvol})",
+      "rounding_rule": "Vhat_m: 2 decimals; delta: 2 decimals (signed)",
+      "seeds_used": "10 seeds, 0..9",
+      "status": "exact",
+      "underlying_data_file": "(audit run; sections/09_appendix.tex lines 2690-2710)"
+    },
+    {
+      "aggregation_rule": "per-node KS p-value with Bonferroni; pass = corrected p \u2265 0.05",
+      "all_reported_numbers": {
+        "aqi_37": {
+          "failing": 5,
+          "failure_type": "5 RG (regime gaps)",
+          "nodes": 37,
+          "passing": 32
+        },
+        "elec_20": {
+          "failing": 2,
+          "failure_type": "2 RG (peak-hour bimodality)",
+          "nodes": 20,
+          "passing": 18
+        },
+        "metrla_20": {
+          "failing": 2,
+          "failure_type": "2 ZF (zero-flow gaps)",
+          "nodes": 20,
+          "passing": 18
+        },
+        "metrla_full": {
+          "failing": 16,
+          "failure_type": "10 ZF + 6 RG",
+          "nodes": 207,
+          "passing": 191
+        },
+        "pems_bay_50": {
+          "failing": 3,
+          "failure_type": "2 ZF + 1 RG",
+          "nodes": 50,
+          "passing": 47
+        }
+      },
+      "artifact_id": "Table 20 (tab:pit, PIT uniformity)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "PIT uniformity KS test, per node. Pass = Bonferroni-corrected p \u2265 0.05.",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "(scipy.stats.kstest one-sample uniform with Bonferroni correction; coded under src/filcorel/metrics/diagnostics.py:pit_uniformity)",
+      "input_datasets": [
+        "metrla",
+        "pems_bay",
+        "aqi (full source 37 stations)",
+        "elec",
+        "metrla_full"
+      ],
+      "methods_included": [
+        "GraphNeuralSSM"
+      ],
+      "paper_location": "sections/09_appendix.tex (\\label{tab:pit})",
+      "rounding_rule": "node counts: integer; failure type: enumeration (ZF/RG)",
+      "seeds_used": "single seed (specification diagnostic)",
+      "status": "exact",
+      "underlying_data_file": "(diagnostic run; sections/09_appendix.tex lines 2722-2745)"
+    },
+    {
+      "aggregation_rule": "wall-clock seconds (or minutes for training)",
+      "all_reported_numbers": "see deliverable O",
+      "artifact_id": "Table 21 (tab:timing, Wall-clock and memory)",
+      "artifact_type": "table",
+      "caption_or_claim_text": "Wall-clock per method. One seed, all calibration + test passes.",
+      "config_id": "default-full, single seed",
+      "generation_script_or_notebook": "(time.time() instrumentation in run_one_seed of repr/reproduce.py; '_time' field in per-method results)",
+      "input_datasets": [
+        "metrla",
+        "pems_bay"
+      ],
+      "methods_included": "13 methods plus filter trainings",
+      "paper_location": "sections/09_appendix.tex (\\label{tab:timing})",
+      "rounding_rule": "calibration: 1 decimal seconds; training: integer minutes",
+      "seeds_used": "single seed",
+      "status": "exact",
+      "underlying_data_file": "(timing run on RTX 4090 + 8-core Xeon; sections/09_appendix.tex lines 2768-2782)"
+    },
+    {
+      "aggregation_rule": "100*(1 - mean_width(GNF)/mean_width(StaticCGIF))",
+      "all_reported_numbers": {
+        "metrla_pct": -23.6,
+        "pems_bay_pct": -40.5
+      },
+      "artifact_id": "Inline claim \u2014 moderate-N -23.6%/-40.5% width vs StaticCGIF",
+      "artifact_type": "inline_number",
+      "caption_or_claim_text": "GNF improves width by 23.6% on metrla-20 and 40.5% on pems_bay-50 vs StaticCGIF (10-seed mean).",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "(repr/reproduce.py \u2014 widths) + manual percentage calc 1 - 3.05/3.99 = 0.2356",
+      "input_datasets": [
+        "metrla",
+        "pems_bay"
+      ],
+      "methods_included": [
+        "GNF",
+        "StaticCGIF"
+      ],
+      "paper_location": "sections/00_abstract.tex; sections/01_introduction.tex (lines 86-89); sections/06_experiments.tex (lines 110-117)",
+      "rounding_rule": "1 decimal percent",
+      "seeds_used": "10 seeds",
+      "status": "post-processed",
+      "underlying_data_file": "tab:hero (Table 2) widths"
+    },
+    {
+      "aggregation_rule": "100*(1 - 3.05/3.33) = 0.0841;  100*(1 - 1.98/2.30) = 0.1391",
+      "all_reported_numbers": {
+        "metrla_pct": -8.4,
+        "pems_bay_pct": -13.9
+      },
+      "artifact_id": "Inline claim \u2014 -8.4%/-13.9% vs strongest at-target non-filter",
+      "artifact_type": "inline_number",
+      "caption_or_claim_text": "GNF improves width by 8.4% on metrla-20 (vs AgACIGroupCGIF=3.33) and 13.9% on pems_bay-50 (vs ACIPerGroupFactorCGIF=2.30).",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "manual percentage calc on Table 2 widths",
+      "input_datasets": [
+        "metrla",
+        "pems_bay"
+      ],
+      "methods_included": [
+        "GNF",
+        "AgACIGroupCGIF",
+        "ACIPerGroupFactorCGIF"
+      ],
+      "paper_location": "sections/01_introduction.tex (line 88); sections/06_experiments.tex (lines 112-114)",
+      "rounding_rule": "1 decimal percent",
+      "seeds_used": "10 seeds",
+      "status": "post-processed",
+      "underlying_data_file": "tab:hero (Table 2)"
+    },
+    {
+      "aggregation_rule": "10-seed mean joint coverage",
+      "all_reported_numbers": {
+        "unwrapped": 0.878,
+        "wrapped": 0.899
+      },
+      "artifact_id": "Inline claim \u2014 ACI restores at-target on PEMS-BAY-325 (0.878 -> 0.899)",
+      "artifact_type": "inline_number",
+      "caption_or_claim_text": "On PEMS-BAY-325 the ACI wrap empirically restores at-target coverage (0.878 -> 0.899).",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "repr/reproduce.py + ACI wrap (gnf_aci_predict)",
+      "input_datasets": [
+        "pems_bay_full"
+      ],
+      "methods_included": [
+        "GNF",
+        "GNF+ACI"
+      ],
+      "paper_location": "sections/06_experiments.tex (line 118)",
+      "rounding_rule": "3 decimals",
+      "seeds_used": "10 seeds",
+      "status": "exact",
+      "underlying_data_file": "tab:scale (Table 5), pems_bay_full row"
+    },
+    {
+      "aggregation_rule": "ratio of 10-seed mean widths",
+      "all_reported_numbers": {
+        "n20": 4.69,
+        "n325": 51.4,
+        "ratio": 10.96
+      },
+      "artifact_id": "Inline claim \u2014 KalmanFCP widens 11x between N=20 and N=325",
+      "artifact_type": "inline_number",
+      "caption_or_claim_text": "KalmanFCP widens approximately 11x between N=20 and N=325 (4.69 -> 51.4).",
+      "config_id": "default-full",
+      "generation_script_or_notebook": "manual ratio of widths",
+      "input_datasets": [
+        "metrla (N=20)",
+        "pems_bay_full (N=325)"
+      ],
+      "methods_included": [
+        "KalmanFCP"
+      ],
+      "paper_location": "sections/09_appendix.tex (line 2219)",
+      "rounding_rule": "1 decimal multiplier",
+      "seeds_used": "10 seeds",
+      "status": "post-processed",
+      "underlying_data_file": "tab:scale"
+    },
+    {
+      "aggregation_rule": "10-seed mean per rank",
+      "all_reported_numbers": {
+        "joint": [
+          0.939,
+          0.906,
+          0.907,
+          0.907,
+          0.905,
+          0.906
+        ],
+        "r": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "width": [
+          5.32,
+          3.41,
+          3.21,
+          3.04,
+          3.02,
+          3.08
+        ]
+      },
+      "artifact_id": "Inline claim \u2014 rank sweep r=0..16 widths {5.32, 3.41, 3.21, 3.04, 3.02, 3.08} on metrla-20",
+      "artifact_type": "claim_stat",
+      "caption_or_claim_text": "Rank sweep r \u2208 {0,1,2,4,8,16} on metrla-20 yields widths {5.32, 3.41, 3.21, 3.04, 3.02, 3.08} at joint coverage {0.939, 0.906, 0.907, 0.907, 0.905, 0.906}.",
+      "config_id": "default-full \u00d7 low_rank \u2208 {0,1,2,4,8,16}",
+      "generation_script_or_notebook": "repr/reproduce.py --cells metrla --gnf-low-rank {0,1,2,4,8,16}",
+      "input_datasets": [
+        "metrla"
+      ],
+      "methods_included": [
+        "GraphNeuralSSM (i.e. GNF) at r=0..16"
+      ],
+      "paper_location": "sections/06_experiments.tex (line 152); sections/09_appendix.tex App. B.13 (lines 2521-2554)",
+      "rounding_rule": "width: 2 decimals; joint: 3 decimals",
+      "seeds_used": "10 seeds per rank",
+      "status": "exact",
+      "underlying_data_file": "(rank-sweep run on metrla-20)"
+    },
+    {
+      "aggregation_rule": "10-seed mean per t0",
+      "all_reported_numbers": {
+        "joint": [
+          0.908,
+          0.907,
+          0.907,
+          0.907,
+          0.907
+        ],
+        "t0": [
+          0,
+          25,
+          50,
+          100,
+          200
+        ],
+        "width": [
+          3.19,
+          3.05,
+          3.04,
+          3.03,
+          3.03
+        ]
+      },
+      "artifact_id": "Inline claim \u2014 warm-up sweep t0 \u2208 {0,25,50,100,200} widths {3.19,3.05,3.04,3.03,3.03}",
+      "artifact_type": "claim_stat",
+      "caption_or_claim_text": "Discarding t0 steps of filter burn-in on metrla yields widths {3.19,3.05,3.04,3.03,3.03} at joint {0.908,0.907,0.907,0.907,0.907}.",
+      "config_id": "default-full \u00d7 warmup_steps",
+      "generation_script_or_notebook": "repr/reproduce.py --cells metrla --warmup-steps {0,25,50,100,200}",
+      "input_datasets": [
+        "metrla"
+      ],
+      "methods_included": [
+        "GraphNeuralSSM"
+      ],
+      "paper_location": "sections/09_appendix.tex App. B.14 (lines 2556-2564)",
+      "rounding_rule": "width: 2 decimals; joint: 3 decimals",
+      "seeds_used": "10 seeds per t0",
+      "status": "exact",
+      "underlying_data_file": "(warm-up sweep run on metrla-20)"
+    },
+    {
+      "aggregation_rule": "tr(C P_ss^- C^T + R) / tr(empirical residual covariance)",
+      "all_reported_numbers": {
+        "metrla": 0.62,
+        "synthetic": 0.44
+      },
+      "artifact_id": "Inline claim \u2014 Trace-ratio \u03a3_pred/\u03a3_resid \u2208 {0.44, 0.62} on synthetic GRSSF / metrla",
+      "artifact_type": "diagnostic",
+      "caption_or_claim_text": "Linear-Kalman covariance-shape misspecification: trace ratio \u03a3_Y_pred / \u03a3_resid \u2208 {0.44, 0.62} on synthetic / metrla.",
+      "config_id": "default-full GraphLGSSM (rho_scale=0.8, sigma_Q=sigma_R=1)",
+      "generation_script_or_notebook": "(closed-form Riccati on GraphLGSSM + np.cov of calibration residuals; src/filcorel/conformal/per_step_box_external.py supplies P_ss)",
+      "input_datasets": [
+        "synthetic (GRSSF)",
+        "metrla (busiest-20)"
+      ],
+      "methods_included": [
+        "CGIFFiltered (= KalmanFCP)"
+      ],
+      "paper_location": "sections/09_appendix.tex App. B.7 (lines 2452-2454)",
+      "rounding_rule": "2 decimals",
+      "seeds_used": "single audit seed",
+      "status": "exact",
+      "underlying_data_file": "(diagnostic run on synthetic GRSSF + metrla; Audit 5 of tab:audits)"
+    },
+    {
+      "aggregation_rule": "10-seed mean joint coverage = product of per-coord exchangeability projection",
+      "all_reported_numbers": {
+        "HopCPT_joint_metrla": 0.41,
+        "spci_joint_metrla": 0.21
+      },
+      "artifact_id": "Inline claim \u2014 spci marginal joint coverage 0.21; HopCPT 0.41",
+      "artifact_type": "inline_number",
+      "caption_or_claim_text": "Per-coordinate spci joint coverage 0.21; HopCPT 0.41 (against the 0.9 target).",
+      "config_id": "spci defaults; HopCPT W=64, T_train=10000",
+      "generation_script_or_notebook": "experiments/metrla_full.py with spci/HopCPT enabled",
+      "input_datasets": [
+        "metrla"
+      ],
+      "methods_included": [
+        "spci",
+        "HopCPT"
+      ],
+      "paper_location": "sections/09_appendix.tex (lines 1700-1703, 2427-2428)",
+      "rounding_rule": "2 decimals",
+      "seeds_used": "10 seeds",
+      "status": "exact",
+      "underlying_data_file": "tab:hero-full"
+    }
+  ],
+  "n_seeds_real_default": 10,
+  "split": "chronological 70/10/10/10 train/val/calib/test",
+  "test_max_steps": 4000,
+  "warmup_steps": 50
+}

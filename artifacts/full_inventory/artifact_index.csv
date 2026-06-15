@@ -1,0 +1,33 @@
+artifact_id,artifact_type,config_id,paper_location,status
+Figure 1,figure,n/a (schematic),sections/01_introduction.tex (\label{fig:architecture}),manually edited
+Figure 2 (headline.pdf),figure,default-full,sections/06_experiments.tex (\label{fig:headline}),exact
+Figure 3 (scale.pdf),figure,default-full,"sections/09_appendix.tex (\label{fig:scale}, App. B.10)",exact
+"Table 1 (tab:ledger, Theory ledger)",table,n/a,sections/05_theory.tex (\label{tab:ledger}),manually edited
+"Table 2 (tab:hero, Moderate-N graph-native)",table,see §F.1 (CellConfig defaults at --mode full),sections/06_experiments.tex (\label{tab:hero}),exact
+"Table 3 (tab:logvol-main, Headline log-volume)",table,default-full + --audit,sections/06_experiments.tex (\label{tab:logvol-main}),exact
+"Table 4 (tab:diag-main, Diagnostic summary)",table,default-full + --audit,sections/06_experiments.tex (\label{tab:diag-main}),exact
+"Table 5 (tab:scale, GPVAR scale sweep)",table,default-full,sections/06_experiments.tex (\label{tab:scale}),exact
+"Table 6 (tab:backbone-crossover, Full-graph backbone crossover)",table,"default-full × backbone ∈ {gpvar, gru, transformer, stgnn}",sections/06_experiments.tex (\label{tab:backbone-crossover}),exact
+"Table 7 (tab:hyperparams, GraphNeuralSSM hyperparameters)",table,n/a (config artifact),sections/09_appendix.tex (\label{tab:hyperparams}),exact
+"Table 8 (tab:method-map, Method→mean→covariance map)",table,n/a,sections/09_appendix.tex (\label{tab:method-map}),exact
+"Table 9 (tab:datasets, Dataset inventory)",table,n/a,sections/09_appendix.tex (\label{tab:datasets}),exact
+"Table 10 (tab:taxonomy, Dataset taxonomy)",table,n/a,sections/09_appendix.tex (\label{tab:taxonomy}),exact
+"Table 11 (tab:tau-int, Integrated autocorrelation time)",table,"audit-only h=16, r=4, single seed",sections/09_appendix.tex (\label{tab:tau-int}),exact
+"Table 12 (tab:rho-full, Per-dataset contraction rates)",table,"GraphLGSSM (rho_scale=0.8, sigma_Q=sigma_R=1) + GraphNeuralSSM deployed",sections/09_appendix.tex (\label{tab:rho-full}),exact
+"Table 13 (tab:multibackbone-mod, Moderate-N multi-backbone replication)",table,default-full × backbone,sections/09_appendix.tex (\label{tab:multibackbone-mod}),exact
+"Table 14 (tab:multibackbone-full, Full-graph multi-backbone)",table,default-full × 4 backbones × 2 cells,sections/09_appendix.tex (\label{tab:multibackbone-full}),exact
+"Table 15 (tab:multibackbone-nontraffic, Non-graph-native panel)",table,default-full × backbone × non-graph-native cells,sections/09_appendix.tex (\label{tab:multibackbone-nontraffic}),exact
+"Table 16 (tab:hero-full, Extended baseline comparison)",table,default-full + extended baseline grid,sections/09_appendix.tex (\label{tab:hero-full}),exact
+"Table 17 (tab:seeds, Per-seed width and coverage)",table,default-full,sections/09_appendix.tex (\label{tab:seeds}),exact
+"Table 18 (tab:obs-audit, Finite-horizon observability)",table,audit-only,sections/09_appendix.tex (\label{tab:obs-audit}),exact
+"Table 19 (tab:logvol, Per-cell log-volume)",table,default-full + --audit; ridge floor lambda_min^log = 1e-4,sections/09_appendix.tex (\label{tab:logvol}),exact
+"Table 20 (tab:pit, PIT uniformity)",table,default-full,sections/09_appendix.tex (\label{tab:pit}),exact
+"Table 21 (tab:timing, Wall-clock and memory)",table,"default-full, single seed",sections/09_appendix.tex (\label{tab:timing}),exact
+Inline claim — moderate-N -23.6%/-40.5% width vs StaticCGIF,inline_number,default-full,sections/00_abstract.tex; sections/01_introduction.tex (lines 86-89); sections/06_experiments.tex (lines 110-117),post-processed
+Inline claim — -8.4%/-13.9% vs strongest at-target non-filter,inline_number,default-full,sections/01_introduction.tex (line 88); sections/06_experiments.tex (lines 112-114),post-processed
+Inline claim — ACI restores at-target on PEMS-BAY-325 (0.878 -> 0.899),inline_number,default-full,sections/06_experiments.tex (line 118),exact
+Inline claim — KalmanFCP widens 11x between N=20 and N=325,inline_number,default-full,sections/09_appendix.tex (line 2219),post-processed
+"Inline claim — rank sweep r=0..16 widths {5.32, 3.41, 3.21, 3.04, 3.02, 3.08} on metrla-20",claim_stat,"default-full × low_rank ∈ {0,1,2,4,8,16}",sections/06_experiments.tex (line 152); sections/09_appendix.tex App. B.13 (lines 2521-2554),exact
+"Inline claim — warm-up sweep t0 ∈ {0,25,50,100,200} widths {3.19,3.05,3.04,3.03,3.03}",claim_stat,default-full × warmup_steps,sections/09_appendix.tex App. B.14 (lines 2556-2564),exact
+"Inline claim — Trace-ratio Σ_pred/Σ_resid ∈ {0.44, 0.62} on synthetic GRSSF / metrla",diagnostic,"default-full GraphLGSSM (rho_scale=0.8, sigma_Q=sigma_R=1)",sections/09_appendix.tex App. B.7 (lines 2452-2454),exact
+Inline claim — spci marginal joint coverage 0.21; HopCPT 0.41,inline_number,"spci defaults; HopCPT W=64, T_train=10000","sections/09_appendix.tex (lines 1700-1703, 2427-2428)",exact

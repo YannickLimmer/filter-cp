@@ -1,0 +1,15 @@
+N,cell,method,table,width_mean,width_std
+20,metrla,AgACIGroupCGIF,tab:hero,3.33,0.23
+20,metrla,CopulaCPTS,tab:hero,3.7,0.24
+20,metrla,DiagGRU,tab:hero,4.71,1.16
+20,metrla,GNF,tab:hero,3.05,0.13
+20,metrla,GNF+ACI,tab:hero,2.95,0.17
+20,metrla,MultiDimSPCI,tab:hero,4.1,0.17
+20,metrla,StaticCGIF,tab:hero,3.99,0.17
+50,pems_bay,ACIPerGroupFactorCGIF,tab:hero,2.3,0.09
+50,pems_bay,CopulaCPTS,tab:hero,5.69,0.74
+50,pems_bay,DiagGRU,tab:hero,2.88,0.1
+50,pems_bay,GNF,tab:hero,1.98,0.06
+50,pems_bay,GNF+ACI,tab:hero,1.99,0.07
+50,pems_bay,MultiDimSPCI,tab:hero,3.4,0.11
+50,pems_bay,StaticCGIF,tab:hero,3.33,0.11

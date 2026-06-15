@@ -1,0 +1,12 @@
+# Auto-generated exact requirement lock.
+# Verify with: python scripts/verify_runtime_lock.py
+
+h5py==3.16.0  # sha256:948fc516b8d3b19e0bc33e91abc9dc37fe33bcf399663bc60c660cdbacc26011
+huggingface-hub==1.17.0  # sha256:4996e8a24dcbdb8dc6821a76c7ad99198ca2badd4846c66c26fac8acc4b947b6
+numpy==2.4.6  # sha256:380c9c605c9d1d2232bfd4fdf60f78d148c36e05419259d399db00c835bd80e5
+pandas==3.0.3  # sha256:5ce354eb88d1cf575f564e5435f6f019c9b5902dd9712581fc3626798e4cba96
+pyarrow==24.0.0  # sha256:f7b3fa7d57c87fbc086be34bf47703b2ec6862e27b479a318596310d07fff868
+requests==2.34.2  # sha256:0e56ef98e6c75e79699ceb1cd2990fcaac391e1b6ecdd57c9317628c3d146301
+scikit-learn==1.8.0  # sha256:167cd5df9cc9020b2abb70d018cf4a660e867d8ae9ca108f475421cb2b126bb8
+scipy==1.17.1  # sha256:9e3523e2b87b8a7bfebb90f200086fb4310457083d82c1180e07a16dc52db790
+torch==2.12.0  # sha256:1579ce9e3e5d9178fdfba07b26a611b60e4eb7de74754e998293d8f18bf4761a

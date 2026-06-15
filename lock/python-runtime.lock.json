@@ -1,0 +1,279 @@
+{
+  "all_installed_packages": [
+    {
+      "name": "annotated-doc",
+      "sha256": "af638d2fef87c825cf061c6f152877b961d18399887b4fcdf31b1944a288d731",
+      "version": "0.0.4"
+    },
+    {
+      "name": "anyio",
+      "sha256": "7298caa0bf2bba28d6474bfeabfde9e43dc14a539a5efbb1bce750de1b91ed81",
+      "version": "4.13.0"
+    },
+    {
+      "name": "certifi",
+      "sha256": "ec9df118fa8036f7a4414a73b67aa2e93b40b0001da8629e83333bb842fd8231",
+      "version": "2026.5.20"
+    },
+    {
+      "name": "charset-normalizer",
+      "sha256": "c2b48cc0c56b4eef5200a7486e60c94bc127704e9e7730ec55ec25361a77e687",
+      "version": "3.4.7"
+    },
+    {
+      "name": "click",
+      "sha256": "d1ab8c218f4d19c4d46cd045edaf2e90c4a8fde765d1a4852f6fe795165ff840",
+      "version": "8.4.1"
+    },
+    {
+      "name": "filelock",
+      "sha256": "f8377f8a1a9b13840fa49ca3352a61f1a4f59ac916231f4c3b47100ac26fa987",
+      "version": "3.29.0"
+    },
+    {
+      "name": "fsspec",
+      "sha256": "f67a0ef88568ae3cdde1e74bab457917a2da50bd94a33d0368addfc957110eeb",
+      "version": "2026.4.0"
+    },
+    {
+      "name": "h11",
+      "sha256": "d7874503ee855ca246c3434f24065ebaea64a8ed61c77eb387b14ba6ccc55cfc",
+      "version": "0.16.0"
+    },
+    {
+      "name": "h5py",
+      "sha256": "948fc516b8d3b19e0bc33e91abc9dc37fe33bcf399663bc60c660cdbacc26011",
+      "version": "3.16.0"
+    },
+    {
+      "name": "hf-xet",
+      "sha256": "46904ab159626d6a9cbafd6ddf2a90c67c59d6a61e78e803dff4333a97ba41e5",
+      "version": "1.5.0"
+    },
+    {
+      "name": "httpcore",
+      "sha256": "78c33963171f9ca7e2f1a2ad42851e2ac55cbf33e9167f75e5c657a73ad23b1d",
+      "version": "1.0.9"
+    },
+    {
+      "name": "httpx",
+      "sha256": "314d6079aaa02961b23adaba9589ccf6f792693c1fcf03125c17745cd1a342a4",
+      "version": "0.28.1"
+    },
+    {
+      "name": "huggingface-hub",
+      "sha256": "4996e8a24dcbdb8dc6821a76c7ad99198ca2badd4846c66c26fac8acc4b947b6",
+      "version": "1.17.0"
+    },
+    {
+      "name": "idna",
+      "sha256": "41843b4a26418944e098df8bf81b22300005e549a2c862144d6b9ccbaa17cf31",
+      "version": "3.17"
+    },
+    {
+      "name": "jinja2",
+      "sha256": "cc18b4931b9c284dcbe160f3f62d9ac764cb798c5dccca62baa17bcfebdd9b3c",
+      "version": "3.1.6"
+    },
+    {
+      "name": "joblib",
+      "sha256": "cb716c574834ac4fc703e848dc096a7cd7e394cd218fc44da5efc4b8d00344f5",
+      "version": "1.5.3"
+    },
+    {
+      "name": "markdown-it-py",
+      "sha256": "2739091fcd8594fc8916de665eeba7457c9b0f0ad716a7f97f9a1195730d9b57",
+      "version": "4.2.0"
+    },
+    {
+      "name": "markupsafe",
+      "sha256": "562db0c8ea61906b358cc28275b03abc41d305d1a48850aa36fa666e77fa9fc2",
+      "version": "3.0.3"
+    },
+    {
+      "name": "mdurl",
+      "sha256": "173c2c46b52378c1e950e451343334bdad0fa417936d516a90b5d3d0acafe9df",
+      "version": "0.1.2"
+    },
+    {
+      "name": "mpmath",
+      "sha256": "1435cff1a6c951be85738740088e6616342719f4aea259819076a6ef30f51473",
+      "version": "1.3.0"
+    },
+    {
+      "name": "networkx",
+      "sha256": "540b286bdf885df886b4e00d424018430048d5efb5cf915c33a8561428ed9274",
+      "version": "3.6.1"
+    },
+    {
+      "name": "numpy",
+      "sha256": "380c9c605c9d1d2232bfd4fdf60f78d148c36e05419259d399db00c835bd80e5",
+      "version": "2.4.6"
+    },
+    {
+      "name": "packaging",
+      "sha256": "38692717a47bf89bae498dd5b6e064ae9a69cf1964b4a331d0d88f71bf9af8e0",
+      "version": "26.2"
+    },
+    {
+      "name": "pandas",
+      "sha256": "5ce354eb88d1cf575f564e5435f6f019c9b5902dd9712581fc3626798e4cba96",
+      "version": "3.0.3"
+    },
+    {
+      "name": "pip",
+      "sha256": "9db53818ed7b65e29a7201eba1def945d96bd89a251e17a232d3cd016cfda5de",
+      "version": "26.1.1"
+    },
+    {
+      "name": "pyarrow",
+      "sha256": "f7b3fa7d57c87fbc086be34bf47703b2ec6862e27b479a318596310d07fff868",
+      "version": "24.0.0"
+    },
+    {
+      "name": "pygments",
+      "sha256": "219ff395890273c447c03d4854db22630e420332ec10d32dde5c1328e1251d63",
+      "version": "2.20.0"
+    },
+    {
+      "name": "python-dateutil",
+      "sha256": "b23907f00f17e481d0afc4b88b72d6972ac2b2ead07188043eb0f43ec1605388",
+      "version": "2.9.0.post0"
+    },
+    {
+      "name": "pyyaml",
+      "sha256": "dcd060f097e4a2a6b979adf5fa3e525f9c6c2cfc5a78ca2405a462557645da97",
+      "version": "6.0.3"
+    },
+    {
+      "name": "requests",
+      "sha256": "0e56ef98e6c75e79699ceb1cd2990fcaac391e1b6ecdd57c9317628c3d146301",
+      "version": "2.34.2"
+    },
+    {
+      "name": "rich",
+      "sha256": "b1e2967118c72276d447b443eed8555415a8459f7f99f5094ab55336754b8690",
+      "version": "15.0.0"
+    },
+    {
+      "name": "scikit-learn",
+      "sha256": "167cd5df9cc9020b2abb70d018cf4a660e867d8ae9ca108f475421cb2b126bb8",
+      "version": "1.8.0"
+    },
+    {
+      "name": "scipy",
+      "sha256": "9e3523e2b87b8a7bfebb90f200086fb4310457083d82c1180e07a16dc52db790",
+      "version": "1.17.1"
+    },
+    {
+      "name": "setuptools",
+      "sha256": "b48200b55df030b1170b7557464d80bfa29ce883eb33b530645423ad66ce8487",
+      "version": "81.0.0"
+    },
+    {
+      "name": "shellingham",
+      "sha256": "6391f6f8f12fd175517ce95806ed936fe50308209fc6d927688072bd1f922ce7",
+      "version": "1.5.4"
+    },
+    {
+      "name": "six",
+      "sha256": "6c38c33011aabbc5d17387ba5345d350754fce5afe999d4088e763fd26dcaafd",
+      "version": "1.17.0"
+    },
+    {
+      "name": "sympy",
+      "sha256": "3c58dc66351026a99c719a582a87632554b09b59060026ffeaf01a771f8e0ea2",
+      "version": "1.14.0"
+    },
+    {
+      "name": "threadpoolctl",
+      "sha256": "2f73ad0c9b4cb57d269601e59b6fb46f6eea74e740cecca032bb0adbc08e6483",
+      "version": "3.6.0"
+    },
+    {
+      "name": "torch",
+      "sha256": "1579ce9e3e5d9178fdfba07b26a611b60e4eb7de74754e998293d8f18bf4761a",
+      "version": "2.12.0"
+    },
+    {
+      "name": "tqdm",
+      "sha256": "1c8a97f3986b1af399f507179b4f3f6b3a06f84f2b87d468570391f8cf8e3489",
+      "version": "4.67.3"
+    },
+    {
+      "name": "typer",
+      "sha256": "55d1fd3101692dc6124fe41a384a930adea2f2fff00fa81ef2575423fb808931",
+      "version": "0.25.1"
+    },
+    {
+      "name": "typing-extensions",
+      "sha256": "feafa29e33bd79700caa0e35c7c9ff0cdbe972d4742c0731575935222e23df4c",
+      "version": "4.15.0"
+    },
+    {
+      "name": "urllib3",
+      "sha256": "e3b431593048c622128574a28678a62b1eeaf02a944f4347e2b8a1263095be7b",
+      "version": "2.7.0"
+    }
+  ],
+  "generated_at_utc": "2026-05-29T13:14:47.272649+00:00",
+  "platform": {
+    "machine": "arm64",
+    "processor": "arm",
+    "release": "24.2.0",
+    "system": "Darwin"
+  },
+  "python": {
+    "executable": "python",
+    "implementation": "CPython",
+    "version": "3.14.0"
+  },
+  "requirements_source": "repr/requirements.txt",
+  "runtime_requirements": [
+    {
+      "name": "h5py",
+      "sha256": "948fc516b8d3b19e0bc33e91abc9dc37fe33bcf399663bc60c660cdbacc26011",
+      "version": "3.16.0"
+    },
+    {
+      "name": "huggingface-hub",
+      "sha256": "4996e8a24dcbdb8dc6821a76c7ad99198ca2badd4846c66c26fac8acc4b947b6",
+      "version": "1.17.0"
+    },
+    {
+      "name": "numpy",
+      "sha256": "380c9c605c9d1d2232bfd4fdf60f78d148c36e05419259d399db00c835bd80e5",
+      "version": "2.4.6"
+    },
+    {
+      "name": "pandas",
+      "sha256": "5ce354eb88d1cf575f564e5435f6f019c9b5902dd9712581fc3626798e4cba96",
+      "version": "3.0.3"
+    },
+    {
+      "name": "pyarrow",
+      "sha256": "f7b3fa7d57c87fbc086be34bf47703b2ec6862e27b479a318596310d07fff868",
+      "version": "24.0.0"
+    },
+    {
+      "name": "requests",
+      "sha256": "0e56ef98e6c75e79699ceb1cd2990fcaac391e1b6ecdd57c9317628c3d146301",
+      "version": "2.34.2"
+    },
+    {
+      "name": "scikit-learn",
+      "sha256": "167cd5df9cc9020b2abb70d018cf4a660e867d8ae9ca108f475421cb2b126bb8",
+      "version": "1.8.0"
+    },
+    {
+      "name": "scipy",
+      "sha256": "9e3523e2b87b8a7bfebb90f200086fb4310457083d82c1180e07a16dc52db790",
+      "version": "1.17.1"
+    },
+    {
+      "name": "torch",
+      "sha256": "1579ce9e3e5d9178fdfba07b26a611b60e4eb7de74754e998293d8f18bf4761a",
+      "version": "2.12.0"
+    }
+  ]
+}

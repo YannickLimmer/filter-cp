@@ -1,0 +1,5 @@
+claim_id,dataset,denominator_method,numerator_method,percent
+improvement_vs_static_metrla,metrla,StaticCGIF,GNF,23.55889724310778
+improvement_vs_static_pems_bay,pems_bay,StaticCGIF,GNF,40.54054054054054
+improvement_vs_best_nonfilter_metrla,metrla,AgACIGroupCGIF,GNF,8.40840840840842
+improvement_vs_best_nonfilter_pems_bay,pems_bay,ACIPerGroupFactorCGIF,GNF,13.913043478260867

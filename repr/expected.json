@@ -1,0 +1,28 @@
+{
+  "_doc": "Reference numbers reported in the submission's main section (Table tab:hero, Table tab:scale, Table tab:diag-main, Table tab:logvol-main). Each cell key is the dataset; each method key is the publication-facing name (GNF, GNF+ACI, KalmanFCP, StaticCGIF, DiagGRU, GCNrankzero, FactorCGIF, AgACIGroupCGIF, ACIPerGroupFactorCGIF, EWMACovCGIF, RollingCovCGIF, CopulaCPTS, MultiDimSPCI). Each value is `[mean, std]` for the per-coord ellipsoid width at alpha=0.10. The runner emits a delta column comparing your reproduction to these numbers; deltas inside `2 * std` are within Monte-Carlo tolerance.",
+  "alpha": 0.1,
+  "n_seeds_real": 10,
+  "table_hero": {
+    "metrla":       {"N": 20, "GNF": [3.05, 0.13], "GNF+ACI": [2.95, 0.17], "AgACIGroupCGIF": [3.33, 0.23], "StaticCGIF": [3.99, 0.17], "DiagGRU": [4.71, 1.16], "CopulaCPTS": [3.70, 0.24], "MultiDimSPCI": [4.10, 0.17]},
+    "pems_bay":     {"N": 50, "GNF": [1.98, 0.06], "GNF+ACI": [1.99, 0.07], "ACIPerGroupFactorCGIF": [2.30, 0.09], "StaticCGIF": [3.33, 0.11], "DiagGRU": [2.88, 0.10], "CopulaCPTS": [5.69, 0.74], "MultiDimSPCI": [3.40, 0.11]}
+  },
+  "table_scale_gpvar": {
+    "metrla":        {"N": 20,  "GNF": [3.05, 0.13], "GNF+ACI": [2.95, 0.17], "ACIPerGroupFactorCGIF": [3.60, 0.28], "CopulaCPTS": [3.70, 0.24], "MultiDimSPCI": [4.10, 0.17], "StaticCGIF": [3.99, 0.17], "KalmanFCP": [4.69, 0.28]},
+    "metrla_full":   {"N": 207, "GNF": [9.14, 0.24], "GNF+ACI": [9.00, 0.60], "ACIPerGroupFactorCGIF": [7.21, 0.00], "CopulaCPTS": [6.73, 0.04], "MultiDimSPCI": [12.6, 0.00], "StaticCGIF": [11.8, 0.00], "KalmanFCP": [21.2, 0.00]},
+    "pems_bay":      {"N": 50,  "GNF": [1.98, 0.06], "GNF+ACI": [1.99, 0.07], "ACIPerGroupFactorCGIF": [2.30, 0.09], "CopulaCPTS": [5.69, 0.74], "MultiDimSPCI": [3.40, 0.11], "StaticCGIF": [3.33, 0.11], "KalmanFCP": [11.2, 1.03]},
+    "pems_bay_full": {"N": 325, "GNF": [8.58, 0.28], "GNF+ACI": [9.01, 0.38], "ACIPerGroupFactorCGIF": [5.64, 0.00], "CopulaCPTS": [14.4, 1.41], "MultiDimSPCI": [12.7, 0.00], "StaticCGIF": [12.0, 0.00], "KalmanFCP": [51.4, 0.00]}
+  },
+  "table_logvol_main": {
+    "_doc": "Per-coord normalised log-volume \\Vhat_m on the headline cells (lower is sharper).  10-seed mean.",
+    "metrla":     {"N": 20, "GNF": 1.18, "AgACIGroupCGIF": 1.31, "ACIPerGroupFactorCGIF": 1.36, "StaticCGIF": 1.45},
+    "pems_bay":   {"N": 50, "GNF": 0.81, "AgACIGroupCGIF": 1.04, "ACIPerGroupFactorCGIF": 1.06, "StaticCGIF": 1.32}
+  },
+  "table_diag_main": {
+    "_doc": "Range of empirical contraction-rate diagnostics across the audited real cells (Table tab:diag-main).",
+    "rho_dG_range":     [0.45, 0.46],
+    "rho_DL_range":     [0.48, 0.50],
+    "rho_score_range":  [0.140, 0.153],
+    "rho_ind_approx":   0.85,
+    "tau_int_range":    [10, 13]
+  }
+}
